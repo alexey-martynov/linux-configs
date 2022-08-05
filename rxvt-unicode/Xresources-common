@@ -1,0 +1,2 @@
+URxvt.scrollBar_right: true
+URxvt.saveLines: 10000
