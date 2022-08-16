@@ -10,7 +10,7 @@ if test "$PS1" ; then
     # X - no init so do not clear and restore terminal
     export LESS=fFRQX
 
-    # Set a little bity more bright colors for 'ls'
+    # Set a little bit brighter colors for 'ls'
     export LSCOLORS=Exfxcxdxbxegedabagacad
 
     # Append history, ignore duplicates and some generic commands
@@ -18,9 +18,9 @@ if test "$PS1" ; then
     export HISTIGNORE="&:ls:[bf]g:exit"
     shopt -s histappend
 
-    # Tune Git integration and prompt
-    export GIT_PS1_SHOWDIRTYSTATE=1
     if type __git_ps1 > /dev/null 2>&1 ; then
+        # Tune Git integration and prompt
+        export GIT_PS1_SHOWDIRTYSTATE=1
         PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[0;33m\]$(__git_ps1)\[\033[00m\]\$ '
     fi
 
