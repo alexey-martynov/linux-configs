@@ -65,6 +65,20 @@ which are applied for interactive shell only:
   
   # `lh` - long format with sizes in human readable form.
 
+Bash prompt parts colors can be overridden with the following variables:
+
+* `AVM_PROMPT_JOB_COUNT_COLORS`
+
+  Colors for job count information (magenta by default).
+  
+* `AVM_PROMPT_SUCCESS_COLORS`
+
+  Colors for succeeded last command (green by default).
+  
+* `AVM_PROMPT_FAIL_COLORS`
+
+  Colors for failed last command (red by default).
+
 Usage: source `bashrc` to user's `~/.bashrc`:
 
 ```
