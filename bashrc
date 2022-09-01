@@ -19,7 +19,7 @@ function __avm_job_count() {
 
     if [[ "$jobs" -ne "0" ]]
     then
-        echo -e " \xE2\x86\xBB ${jobs//[[:space:]]/}${AVM_PROMPT_RESET_COLORS}"
+        echo -e " \xE2\x86\xBB ${jobs//[[:space:]]/}"
     fi
 }
 
