@@ -12,14 +12,14 @@ Directory: `rxvt-unicode`
 The default Rxvt Unicode settings tuned in files:
 
 1. `Xresources-common`
-   
+
    * Scroll bar placed on right side of window.
    * Scroll buffer increased to 10 000 lines.
-   
+
 2. `Xresources-twilight`
 
    Twilight color scheme.
-   
+
 Usage: include corresponding file to user's `~/.Xresources` file
 
 ```
@@ -38,43 +38,47 @@ which are applied for interactive shell only:
 * `less` command tuned to show colors, be silent, exit if content to
   show fits single screen and skip `ncurses` initialization and
   deinitialization (this preserves `less` output after exit).
-  
+
 * `ls` colors tuned to be a little bit brighter for Twilight terminal
   color scheme.
-  
+
 * The history tuned to avoid storing duplicates, always append history
   and ignore common commands:
-  
-  # `ls`
-  
-  # `fg`
-  
-  # `bg`
-  
-  # `exit`
-  
+
+    - `ls`
+
+    - `fg`
+
+    - `bg`
+
+    - `exit`
+
   since no reason to store them.
-  
+
 * If Git completion is installed the prompt tuned to show current
   branch and dirty state in "yellow" (whatever it means for current
   terminal's color scheme).
-  
+
 * Aliases for `ls` added to use colors and file suffixes:
-  
-  # `ls` - default format
-  
-  # `lh` - long format with sizes in human readable form.
+
+    - `ls` - default format
+
+    - `lh` - long format with sizes in human readable form.
 
 Bash prompt parts colors can be overridden with the following variables:
 
 * `AVM_PROMPT_JOB_COUNT_COLORS`
 
   Colors for job count information (magenta by default).
-  
+
+* `AVM_PROMPT_GIT_BRANCH_COLORS`
+
+  Colors for Git branch and status (yellow by default).
+
 * `AVM_PROMPT_SUCCESS_COLORS`
 
   Colors for succeeded last command (green by default).
-  
+
 * `AVM_PROMPT_FAIL_COLORS`
 
   Colors for failed last command (red by default).
