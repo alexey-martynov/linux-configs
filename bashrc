@@ -32,6 +32,12 @@ then
     done
 fi
 
+# Add local commands to PATH
+if test -d "$HOME/.local/bin"
+then
+    export PATH="$PATH:$HOME/.local/bin"
+fi
+
 # Make 'less' to:
 # f - open non-regular files
 # F - exit if content is shown on first screen
