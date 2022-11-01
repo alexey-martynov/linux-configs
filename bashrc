@@ -1,5 +1,11 @@
 # -*- mode: shell-script -*-
 
+# Add local commands to PATH
+if test -d "$HOME/.local/bin"
+then
+    export PATH="$PATH:$HOME/.local/bin"
+fi
+
 export AVM_PROMPT_RESET_COLORS='\033[00m'
 export AVM_PROMPT_JOB_COUNT_COLORS="${AVM_PROMPT_JOB_COUNT_COLORS:-\033[35;1m}"
 export AVM_PROMPT_GIT_BRANCH_COLORS="${AVM_PROMPT_GIT_BRANCH_COLORS:-\033[0;33m}"
@@ -30,12 +36,6 @@ then
     do
         . "$file"
     done
-fi
-
-# Add local commands to PATH
-if test -d "$HOME/.local/bin"
-then
-    export PATH="$PATH:$HOME/.local/bin"
 fi
 
 # Make 'less' to:
