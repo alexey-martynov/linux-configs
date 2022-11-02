@@ -54,7 +54,7 @@ export LESS=fFRQX
 export LSCOLORS=Exfxcxdxbxegedabagacad
 
 # Append history, ignore duplicates and some generic commands
-export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoreboth
 export HISTIGNORE="&:ls:[bf]g:exit"
 shopt -s histappend
 
