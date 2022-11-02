@@ -77,6 +77,10 @@ xterm*|rxvt*)
     ;;
 esac
 
+# Check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
 # Some aliases
 alias ls='ls -FG --color=auto'
 alias lh='ls -lh'
