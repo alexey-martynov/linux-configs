@@ -88,3 +88,27 @@ Usage: source `bashrc` to user's `~/.bashrc`:
 ```
 . configs/bashrc
 ```
+
+Xkb Russian Macintosh Layout
+----------------------------
+
+The default Russian keyboard layouts in Linux have the following
+issues:
+
+* They don't allow to enter most of symbols used as good typography
+  practice, for example, dashes or ellipsis.
+  
+* The Macintosh layout allows to enter Rouble sign but it is placed to
+  button different from Mac layout.
+
+The `xkb/ru-mac.patch` fixes theses issues by moving Rouble sign to
+`RAlt-8` and adding more symbols.
+
+To install please issue
+
+```
+patch -p0 < ~/configs/ru-mac.patch
+```
+
+in the directory with X11 Xkb layouts (usually
+`/usr/share/X11/Xkb/symbols`).
