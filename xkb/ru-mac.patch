@@ -1,6 +1,6 @@
 --- ru	2022-11-21 13:54:40.710682785 +0300
 +++ ru	2022-11-22 08:37:38.853069692 +0300
-@@ -863,18 +863,30 @@
+@@ -863,18 +863,33 @@
      include "ru(common)"
      name[Group1]= "Russian (Macintosh)";
  
@@ -32,9 +32,12 @@
 +    key <BKSL> { [     backslash,        slash,          backslash,            bar ] };
  
 -    key <AC06> { [   Cyrillic_er,  Cyrillic_ER, U20BD ] };
++    key <AD03> { [    Cyrillic_u,  Cyrillic_U,       Greek_epsilon                 ] };
++
 +    key <AC04> { [   Cyrillic_a,    Cyrillic_A,           division,      plusminus ] };
 +    key <AC05> { [   Cyrillic_pe,  Cyrillic_PE,           ellipsis,     squareroot ] };
 +    key <AC06> { [   Cyrillic_er,  Cyrillic_ER, enfilledcircbullet,       infinity ] };
++    key <AC09> { [   Cyrillic_de,  Cyrillic_DE,       Greek_lambda                 ] };
 +    key <AC10> { [  Cyrillic_zhe, Cyrillic_ZHE,      guillemotleft, guillemotright ] };
 +
 +    key <AB08> { [   Cyrillic_be,  Cyrillic_BE,      lessthanequal,           less ] };

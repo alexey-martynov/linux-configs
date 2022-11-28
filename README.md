@@ -104,7 +104,15 @@ issues:
 The `xkb/ru-mac.patch` fixes theses issues by moving Rouble sign to
 `RAlt-8` and adding more symbols.
 
-To install please issue
+Differences in the updated layout:
+
+* it is still incomplete because of amount of required work and
+
+* some Greek symbols requires often but unavailable from US and RU
+  layouts so the added to Russian layout to level 3: Greek small
+  lambda (on the 'l' key) and Greek small epsilon (on the 'e' key).
+
+To install please execute
 
 ```
 patch -p0 < ~/configs/ru-mac.patch
