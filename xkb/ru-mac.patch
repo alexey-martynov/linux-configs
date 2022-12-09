@@ -1,6 +1,6 @@
 --- ru	2022-11-21 13:54:40.710682785 +0300
-+++ ru	2022-11-22 08:37:38.853069692 +0300
-@@ -863,18 +863,33 @@
++++ ru	2022-12-05 10:29:58.225024016 +0300
+@@ -863,15 +863,27 @@
      include "ru(common)"
      name[Group1]= "Russian (Macintosh)";
  
@@ -22,26 +22,44 @@
 +    key <AE05> { [             5,      percent,          copyright,     registered ] };
 +    key <AE06> { [             6,        colon,        asciicircum,        notsign ] };
 +    key <AE07> { [             7,     question,          ampersand,      paragraph ] };
-+    key <AE08> { [             8,     asterisk,              U20BD,         degree ] };
++    key <AE08> { [             8,     asterisk,              U20BD,         degree ] }; // 8, *, rouble sign, degree sign
 +    key <AE09> { [             9,    parenleft,          parenleft,      braceleft ] };
 +    key <AE10> { [             0,   parenright,         parenright,     braceright ] };
 +    key <AE11> { [         minus,   underscore,             endash,         emdash ] };
-+    key <AE12> { [         equal,         plus,           notequal,          U2248 ] };
++    key <AE12> { [         equal,         plus,           notequal,          U2248 ] }; // =, -, notequal, almost equal
 +    key <TLDE> { [  bracketright,  bracketleft                                     ] };
 +    key <AB10> { [        period,        comma                                     ] };
 +    key <BKSL> { [     backslash,        slash,          backslash,            bar ] };
- 
--    key <AC06> { [   Cyrillic_er,  Cyrillic_ER, U20BD ] };
-+    key <AD03> { [    Cyrillic_u,  Cyrillic_U,       Greek_epsilon                 ] };
 +
 +    key <AC04> { [   Cyrillic_a,    Cyrillic_A,           division,      plusminus ] };
 +    key <AC05> { [   Cyrillic_pe,  Cyrillic_PE,           ellipsis,     squareroot ] };
 +    key <AC06> { [   Cyrillic_er,  Cyrillic_ER, enfilledcircbullet,       infinity ] };
-+    key <AC09> { [   Cyrillic_de,  Cyrillic_DE,       Greek_lambda                 ] };
 +    key <AC10> { [  Cyrillic_zhe, Cyrillic_ZHE,      guillemotleft, guillemotright ] };
-+
+
+-    key <AC06> { [   Cyrillic_er,  Cyrillic_ER, U20BD ] };
 +    key <AB08> { [   Cyrillic_be,  Cyrillic_BE,      lessthanequal,           less ] };
 +    key <AB09> { [   Cyrillic_yu,  Cyrillic_YU,   greaterthanequal,        greater ] };
+
+     include "level3(ralt_switch)"
+ };
+@@ -1056,3 +1068,20 @@
  
      include "level3(ralt_switch)"
  };
++
++// Apple layout with Alexey Martynov's changes
++partial alphanumeric_keys
++xkb_symbols "mac_avm" {
++
++    include "ru(mac)"
++    name[Group1]= "Russian (Macintosh, Alexey Martynov)";
++
++    key <SPCE> { [         space,        space,       nobreakspace,      0x100200D ] };  // space, space, nobreakspace, zero width joiner
++
++    key <AD03> { [    Cyrillic_u,   Cyrillic_U,       Greek_epsilon                ] };
++
++    key <AC09> { [   Cyrillic_de,  Cyrillic_DE,       Greek_lambda                 ] };
++
++    include "level3(ralt_switch)"
++};
++
