@@ -2,7 +2,7 @@
 URxvt.foreground:   #a7a7a7
 URxvt.background:   #1e1e1e
 URxvt.cursorColor:  #a7a7a7
-URxvt.font: xft:DejaVu Sans Mono:size=10
+URxvt.font: xft:DejaVu Sans Mono for Powerline:size=10
 URxvt.letterSpace: -1
 
 ! black
