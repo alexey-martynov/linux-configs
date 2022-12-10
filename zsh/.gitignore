@@ -1,0 +1,5 @@
+# ZSH files
+.zcompdump
+.zsh_history
+# Local configuration
+*-local

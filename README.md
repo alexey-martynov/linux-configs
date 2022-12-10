@@ -89,8 +89,8 @@ Usage: source `bashrc` to user's `~/.bashrc`:
 . configs/bashrc
 ```
 
-Xkb Russian Macintosh Layout
-----------------------------
+Xkb Layouts
+-----------
 
 The default Russian keyboard layouts in Linux have the following
 issues:
@@ -101,16 +101,23 @@ issues:
 * The Macintosh layout allows to enter Rouble sign but it is placed to
   button different from Mac layout.
 
-The `xkb/ru-mac.patch` fixes theses issues by moving Rouble sign to
-`RAlt-8` and adding more symbols.
+Additional Xkb layouts placed to `xkb` subdirectory. The provide:
 
-Differences in the updated layout:
+* Updated layout 'Russian (Macintosh)' to include more symbols for true
+  MacOS layout.
+  
+* Additional layout 'Russian (Macintosh, Alexey Martynov)' which
+  places the following characters:
+  
+  - 'λ' on 'RAlt-l'
+  - 'ε' on 'RAlt-e'
+  - 'non-breaking space' on 'RAlt-Space'
+  - 'zero-width joiner' on 'RAlt-Shift-Space'
+  
+* Additional layout 'US (Macintosh, Alexey Martynov) providing:
 
-* it is still incomplete because of amount of required work and
-
-* some Greek symbols requires often but unavailable from US and RU
-  layouts so the added to Russian layout to level 3: Greek small
-  lambda (on the 'l' key) and Greek small epsilon (on the 'e' key).
+  - 'non-breaking space' on 'RAlt-Space'
+  - 'zero-width joiner' on 'RAlt-Shift-Space'
 
 To install please execute
 
@@ -118,5 +125,41 @@ To install please execute
 patch -p0 < ~/configs/ru-mac.patch
 ```
 
+or 
+
+```
+patch -p0 < ~/configs/us-mac.patch
+```
+
 in the directory with X11 Xkb layouts (usually
 `/usr/share/X11/Xkb/symbols`).
+
+To get new layouts available the XSLT tranformations added to patch
+`evdev.xml`. Please run one of the commands to apply them:
+
+``` shellsession
+cp evdev.xml evedev.xml.org && xsltproc ~/configs/xkb/install-ru.xslt evdev.xml.orig > evdev.xml
+cp evdev.xml evedev.xml.org && xsltproc ~/configs/xkb/install-us.xslt evdev.xml.orig > evdev.xml
+cp evdev.xml evedev.xml.org && xsltproc ~/configs/xkb/install-us.xslt evdev.xml.orig | evedev.xml.org && xsltproc ~/configs/xkb/install-us.xslt - > evdev.xml
+```
+
+Zsh Configuration
+-----------------
+
+To use this configuration files the following should be written to
+`.zshenv` (assuming that repository is checked out to
+`$HOME/configs`:
+
+```
+export ZDOTDIR="$HOME/configs/zsh"
+
+. "$ZDOTDIR/.zshenv"
+```
+
+To properly show Powerline segments in prompt the fonts from
+https://github.com/powerline/fonts should be installed and selected
+for terminal application.
+
+All platform-dependent configuration should go to files with suffix
+`-$(uname)`. For example, MacOS (actually, Darwin) environment goes to
+`.zshenv-Darwin`.
