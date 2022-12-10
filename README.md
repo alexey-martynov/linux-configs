@@ -138,9 +138,9 @@ To get new layouts available the XSLT tranformations added to patch
 `evdev.xml`. Please run one of the commands to apply them:
 
 ``` shellsession
-cp evdev.xml evedev.xml.org && xsltproc ~/configs/xkb/install-ru.xslt evdev.xml.orig > evdev.xml
-cp evdev.xml evedev.xml.org && xsltproc ~/configs/xkb/install-us.xslt evdev.xml.orig > evdev.xml
-cp evdev.xml evedev.xml.org && xsltproc ~/configs/xkb/install-us.xslt evdev.xml.orig | evedev.xml.org && xsltproc ~/configs/xkb/install-us.xslt - > evdev.xml
+# cp evdev.xml evdev.xml.orig && xsltproc ~/configs/xkb/install-ru.xslt evdev.xml.orig > evdev.xml
+# cp evdev.xml evdev.xml.orig && xsltproc ~/configs/xkb/install-us.xslt evdev.xml.orig > evdev.xml
+# cp evdev.xml evdev.xml.orig && xsltproc ~/configs/xkb/install-ru.xslt evdev.xml.orig | xsltproc ~/configs/xkb/install-us.xslt - > evdev.xml
 ```
 
 Zsh Configuration
