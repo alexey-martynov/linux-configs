@@ -115,7 +115,7 @@ prompt_context() {
     local user=`whoami`
 
     if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
-        prompt_segment $PRIMARY_FG default " %(!.%{%F{yellow}%}.)$user@%m "
+        prompt_segment $PRIMARY_FG default "%(!.%{%F{yellow}%}.)$user@%m"
     fi
 }
 
@@ -129,17 +129,16 @@ prompt_git() {
     if [[ -n "$ref" ]]; then
         if is_dirty; then
             color=yellow
-            ref="${ref} "
         else
             color=green
-            ref="${ref} "
         fi
-        if [[ "${ref/.../}" == "$ref" ]]; then
+        if git symbolic-ref -q HEAD >/dev/null
+        then
             ref="$BRANCH $ref"
         else
             ref="$DETACHED ${ref/.../}"
         fi
-        prompt_segment $color $PRIMARY_FG " $ref"
+        prompt_segment $color $PRIMARY_FG "${ref%% }"
     fi
 }
 
@@ -147,7 +146,7 @@ prompt_git() {
 prompt_dir() {
     #prompt_segment blue $PRIMARY_FG ' %~ '
     # Invert text according to Putty colors
-    prompt_segment blue white ' %~ '
+    prompt_segment blue white '%~'
 }
 
 # Status:
@@ -166,7 +165,7 @@ prompt_status() {
     [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}$LIGHTNING"
     [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}$GEAR"
 
-    [[ -n "$symbols" ]] && prompt_segment $PRIMARY_FG default " $symbols "
+    [[ -n "$symbols" ]] && prompt_segment $PRIMARY_FG default "$symbols "
 }
 
 # Display current virtual environment
