@@ -19,5 +19,7 @@ fi
 
 # Load per-platform and local files
 platform="$(uname)"
-[[ -f "$ZDOTDIR/.zshenv-$platform" ]] && . "$ZDOTDIR/.zshenv-$platform"
-[[ -f "$ZDOTDIR/.zshenv-local" ]] && . "$ZDOTDIR/.zshenv-local"
+hostname="$(hostname -s)"
+[[ -f "$ZDOTDIR/.zshenv-$platform" ]] && . "$ZDOTDIR/.zshenv-$platform" || true
+[[ -f "$ZDOTDIR/.zshenv-$hostname" ]] && . "$ZDOTDIR/.zshenv-$hostname" || true
+[[ -f "$ZDOTDIR/.zshenv-local" ]] && . "$ZDOTDIR/.zshenv-local" || true

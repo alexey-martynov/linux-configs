@@ -115,7 +115,7 @@ prompt_context() {
     local user=`whoami`
 
     if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
-        prompt_segment $PRIMARY_FG default "%(!.%{%F{yellow}%}.)$user@%m"
+        prompt_segment $PRIMARY_FG default "%(!.%{%F{yellow}%}.)$user@%m "
     fi
 }
 
@@ -138,7 +138,7 @@ prompt_git() {
         else
             ref="$DETACHED ${ref/.../}"
         fi
-        prompt_segment $color $PRIMARY_FG "${ref%% }"
+        prompt_segment $color $PRIMARY_FG " ${ref%% } "
     fi
 }
 
@@ -146,7 +146,7 @@ prompt_git() {
 prompt_dir() {
     #prompt_segment blue $PRIMARY_FG ' %~ '
     # Invert text according to Putty colors
-    prompt_segment blue white '%~'
+    prompt_segment blue white ' %~ '
 }
 
 # Status:
@@ -214,5 +214,7 @@ fi
 
 # Load per-platform and local files
 platform="$(uname)"
-[[ -f "$ZDOTDIR/.zshrc-$platform" ]] && . "$ZDOTDIR/.zshrc-$platform"
-[[ -f "$ZDOTDIR/.zshrc-local" ]] && . "$ZDOTDIR/.zshrc-local"
+hostname="$(hostname -s)"
+[[ -f "$ZDOTDIR/.zshrc-$platform" ]] && . "$ZDOTDIR/.zshrc-$platform" || true
+[[ -f "$ZDOTDIR/.zshrc-$hostname" ]] && . "$ZDOTDIR/.zshrc-$hostname" || true
+[[ -f "$ZDOTDIR/.zshrc-local" ]] && . "$ZDOTDIR/.zshrc-local" || true
