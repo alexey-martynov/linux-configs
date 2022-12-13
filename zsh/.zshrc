@@ -213,6 +213,13 @@ then
     export PATH
 fi
 
+# Add more key bindings to workaround SSH terminal issues
+if [[ -n "$SSH_CONNECTION" ]]
+then
+    bindkey "^[[7~" beginning-of-line
+    bindkey "^[[8~" end-of-line
+fi
+
 # Load per-platform and local files
 platform="$(uname)"
 hostname="$(hostname -s)"
