@@ -107,10 +107,11 @@ Additional Xkb layouts placed to `xkb` subdirectory. The provide:
   MacOS layout.
   
 * Additional layout 'Russian (Macintosh, Alexey Martynov)' which
-  places the following characters:
+  places the following characters (letters in English):
   
   - 'λ' on 'RAlt-l'
   - 'ε' on 'RAlt-e'
+  - 'combining acute' on 'RAlt-Shift-e', used to show stress in words
   - 'non-breaking space' on 'RAlt-Space'
   - 'zero-width joiner' on 'RAlt-Shift-Space'
   
@@ -118,6 +119,8 @@ Additional Xkb layouts placed to `xkb` subdirectory. The provide:
 
   - 'non-breaking space' on 'RAlt-Space'
   - 'zero-width joiner' on 'RAlt-Shift-Space'
+  - 'combining acute' on 'RAlt-Shift-e' (instead of simple acute),
+    used to show stress in words
 
 To install please execute
 

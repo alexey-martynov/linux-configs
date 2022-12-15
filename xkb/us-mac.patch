@@ -1,6 +1,6 @@
 --- us	2022-12-07 11:52:53.533386974 +0300
-+++ us	2022-12-07 12:02:05.244224152 +0300
-@@ -2162,3 +2162,12 @@
++++ us	2022-12-15 09:03:42.920561659 +0300
+@@ -2162,3 +2162,14 @@
 
      include "level3(ralt_switch)"
  };
@@ -12,4 +12,6 @@
 +    name[Group1]= "English (Macintosh, Alexey Martynov)";
 +
 +    key <SPCE> { [         space,        space,       nobreakspace,      0x100200D ] };  // space, space, nobreakspace, zero width joiner
++
++    key <AD03> { [	        e,           E,         dead_acute,          U0301 ] };  // e, E, acute (dead keys), combining acute
 +};
