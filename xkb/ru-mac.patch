@@ -1,6 +1,6 @@
 --- ru	2022-11-21 13:54:40.710682785 +0300
-+++ ru	2022-12-15 09:03:40.116572574 +0300
-@@ -863,18 +863,30 @@
++++ ru	2022-12-24 12:17:06.300479329 +0300
+@@ -863,18 +863,32 @@
      include "ru(common)"
      name[Group1]= "Russian (Macintosh)";
  
@@ -14,6 +14,8 @@
 -    key <AE08> { [             8,    semicolon  ] };
 -    key <TLDE> { [  bracketright,  bracketleft  ] };
 -    key <BKSL> { [   Cyrillic_io,  Cyrillic_IO  ] };
+-
+-    key <AC06> { [   Cyrillic_er,  Cyrillic_ER, U20BD ] };
 +    key <LSGT> { [          less,      greater                                     ] };
 +    key <AE01> { [             1,       exclam,             exclam,      trademark ] };
 +    key <AE02> { [             2,     quotedbl,                 at,        section ] };
@@ -34,16 +36,17 @@
 +    key <AC04> { [   Cyrillic_a,    Cyrillic_A,           division,      plusminus ] };
 +    key <AC05> { [   Cyrillic_pe,  Cyrillic_PE,           ellipsis,     squareroot ] };
 +    key <AC06> { [   Cyrillic_er,  Cyrillic_ER, enfilledcircbullet,       infinity ] };
++    key <AC07> { [    Cyrillic_o,   Cyrillic_O,              U2206,       Greek_mu ] };  // о, О, increment, Greek mu
 +    key <AC10> { [  Cyrillic_zhe, Cyrillic_ZHE,      guillemotleft, guillemotright ] };
-
--    key <AC06> { [   Cyrillic_er,  Cyrillic_ER, U20BD ] };
++
++    key <AB06> { [   Cyrillic_te,  Cyrillic_TE,           function,       function ] };
 +    key <AB08> { [   Cyrillic_be,  Cyrillic_BE,      lessthanequal,           less ] };
 +    key <AB09> { [   Cyrillic_yu,  Cyrillic_YU,   greaterthanequal,        greater ] };
-
+ 
      include "level3(ralt_switch)"
  };
-@@ -1056,3 +1068,20 @@
-
+@@ -1056,3 +1070,20 @@
+ 
      include "level3(ralt_switch)"
  };
 +
@@ -54,11 +57,11 @@
 +    include "ru(mac)"
 +    name[Group1]= "Russian (Macintosh, Alexey Martynov)";
 +
-+    key <SPCE> { [         space,        space,       nobreakspace,      0x100200D ] };  // space, space, nobreakspace, zero width joiner
++    key <SPCE> { [         space,        space,       nobreakspace,     0x100200D ] };  // space, space, nobreakspace, zero width joiner
 +
-+    key <AD03> { [    Cyrillic_u,   Cyrillic_U,       Greek_epsilon,         U0301 ] };  // у, У, Greek epsilon, combining acute
++    key <AD03> { [    Cyrillic_u,   Cyrillic_U,      Greek_epsilon,         U0301 ] };  // у, У, Greek epsilon, combining acute
 +
-+    key <AC09> { [   Cyrillic_de,  Cyrillic_DE,       Greek_lambda                 ] };
++    key <AC09> { [   Cyrillic_de,  Cyrillic_DE,       Greek_lambda                ] };
 +
 +    include "level3(ralt_switch)"
 +};
