@@ -194,6 +194,28 @@ precmd() {
     then
         eval "$PROMPT_COMMAND"
     fi
+
+    local title=
+
+    if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]
+    then
+        title=$(print -P "$USER@%m: %~")
+    else
+        title=$(print -P "%~")
+    fi
+    builtin echo -ne "\033]0;$title\007"
+}
+
+preexec() {
+    local title=
+
+    if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]
+    then
+        title=$(print -P "$USER@%m: %~ - ${1[(w)1]}")
+    else
+        title=$(print -P "%~ - ${1[(w)1]}")
+    fi
+    builtin echo -ne "\033]0;$title\007"
 }
 
 prompt_opts=(cr subst percent)
