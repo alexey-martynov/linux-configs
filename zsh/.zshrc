@@ -187,13 +187,20 @@ prompt_agnoster_main() {
     done
 }
 
-precmd() {
+[[ -z $precmd_functions ]] && precmd_functions=()
+[[ -z $preexec_functions ]] && preexec_functions=()
+
+precmd_prompt() {
     vcs_info
     PROMPT='%{%f%b%k%}$(prompt_agnoster_main) '
     if [[ -n "$PROMPT_COMMAND" ]]
     then
         eval "$PROMPT_COMMAND"
     fi
+}
+precmd_functions+=precmd_prompt
+
+precmd_title() {
 
     local title=
 
@@ -205,8 +212,9 @@ precmd() {
     fi
     builtin echo -ne "\033]0;$title\007"
 }
+precmd_functions+=precmd_title
 
-preexec() {
+preexec_title() {
     local title=
 
     if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]
@@ -217,6 +225,7 @@ preexec() {
     fi
     builtin echo -ne "\033]0;$title\007"
 }
+preexec_functions+=preexec_title
 
 prompt_opts=(cr subst percent)
 
