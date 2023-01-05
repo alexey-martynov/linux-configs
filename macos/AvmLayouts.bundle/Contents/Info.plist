@@ -8,14 +8,14 @@
 	<string>AvmLayouts</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>KLInfo_Russian (Alexey Martynov)</key>
+	<key>KLInfo_Russian PC (Alexey Martynov)</key>
 	<dict>
 		<key>TICapsLockLanguageSwitchCapable</key>
 		<false/>
 		<key>TISIconIsTemplate</key>
 		<false/>
 		<key>TISInputSourceID</key>
-		<string>org.sil.ukelele.keyboardlayout.alexeymartynovlayoutcollections.russian(alexeymartynov)</string>
+		<string>org.sil.ukelele.keyboardlayout.alexeymartynovlayoutcollections.russianpc(alexeymartynov)</string>
 		<key>TISIntendedLanguage</key>
 		<string>ru</string>
 	</dict>
