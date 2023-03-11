@@ -221,7 +221,49 @@ preexec_title() {
     then
         title=$(print -P "$USER@%m: %~ - ${1[(w)1]}")
     else
-        title=$(print -P "%~ - ${1[(w)1]}")
+        local cmd="${1[(w)1]}"
+
+        if [[ "$cmd" = "ssh" ]]
+        then
+            local skip_next=no
+            local user=
+            local user_next=no
+
+            for arg in "${(z)1}"
+            do
+                case "$arg" in
+
+                    -[BbcDEeFIiJLmOopQRSWw])
+                        skip_next=yes
+                        ;;
+
+                    -l)
+                        user_next=yes
+                        ;;
+
+                    -*)
+                        ;;
+
+                    ssh)
+                       ;;
+
+                    *)
+                        if [[ "$user_next" = yes ]]
+                        then
+                            user="$arg@"
+                            user_next=no
+                        elif [[ "$skip_next" = no ]]
+                        then
+                            title="SSH: $user$arg"
+                            break
+                        fi
+                        skip_next=no
+                    ;;
+                esac
+            done
+        else
+            title=$(print -P "%~ - ${cmd}")
+        fi
     fi
     builtin echo -ne "\033]0;$title\007"
 }
