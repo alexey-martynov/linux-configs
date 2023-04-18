@@ -116,7 +116,7 @@ prompt_context() {
     local user=`whoami`
 
     if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CONNECTION" ]]; then
-        prompt_segment $PRIMARY_FG default "%(!.%{%F{yellow}%}.)$user@%m "
+        prompt_segment $PRIMARY_FG default "%{%(!.%F{yellow}.)%}$user@%m "
     fi
 }
 
@@ -185,6 +185,7 @@ prompt_agnoster_main() {
     for prompt_segment in "${AGNOSTER_PROMPT_SEGMENTS[@]}"; do
         [[ -n $prompt_segment ]] && $prompt_segment
     done
+    echo ' '
 }
 
 [[ -z $precmd_functions ]] && precmd_functions=()
@@ -192,7 +193,7 @@ prompt_agnoster_main() {
 
 precmd_prompt() {
     vcs_info
-    PROMPT='%{%f%b%k%}$(prompt_agnoster_main) '
+    PROMPT='%{%f%b%k%}$(prompt_agnoster_main)'
     if [[ -n "$PROMPT_COMMAND" ]]
     then
         eval "$PROMPT_COMMAND"
