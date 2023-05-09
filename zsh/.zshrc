@@ -262,6 +262,36 @@ preexec_title() {
                     ;;
                 esac
             done
+        elif [[ "$cmd" = "sudo" ]]
+        then
+            local skip_next=no
+            local user=
+            local user_next=no
+
+            for arg in "${(z)1}"
+            do
+                case "$arg" in
+
+                    -[ghpUu])
+                        skip_next=yes
+                        ;;
+
+                    -*)
+                        ;;
+
+                    sudo)
+                       ;;
+
+                    *)
+                        if [[ "$skip_next" = no ]]
+                        then
+                            title=$(print -P "%~ - sudo: $arg")
+                            break
+                        fi
+                        skip_next=no
+                    ;;
+                esac
+            done
         else
             title=$(print -P "%~ - ${cmd}")
         fi
