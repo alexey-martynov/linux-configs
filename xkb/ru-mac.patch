@@ -1,5 +1,5 @@
 --- ru	2022-11-21 13:54:40.710682785 +0300
-+++ ru	2022-12-24 12:17:06.300479329 +0300
++++ ru	2023-08-14 17:10:21.527682209 +0300
 @@ -863,18 +863,32 @@
      include "ru(common)"
      name[Group1]= "Russian (Macintosh)";
@@ -45,7 +45,7 @@
  
      include "level3(ralt_switch)"
  };
-@@ -1056,3 +1070,20 @@
+@@ -1056,3 +1070,21 @@
  
      include "level3(ralt_switch)"
  };
@@ -60,6 +60,7 @@
 +    key <SPCE> { [         space,        space,       nobreakspace,     0x100200D ] };  // space, space, nobreakspace, zero width joiner
 +
 +    key <AD03> { [    Cyrillic_u,   Cyrillic_U,      Greek_epsilon,         U0301 ] };  // у, У, Greek epsilon, combining acute
++    key <AD07> { [  Cyrillic_ghe, Cyrillic_GHE,       Cyrillic_ghe,         U0308 ] };  // г, Г, г, combining diaeresis
 +
 +    key <AC09> { [   Cyrillic_de,  Cyrillic_DE,       Greek_lambda                ] };
 +
