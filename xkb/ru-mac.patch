@@ -1,5 +1,5 @@
 --- ru	2022-11-21 13:54:40.710682785 +0300
-+++ ru	2023-08-14 17:10:21.527682209 +0300
++++ ru	2023-08-18 09:25:38.637096969 +0300
 @@ -863,18 +863,32 @@
      include "ru(common)"
      name[Group1]= "Russian (Macintosh)";
@@ -45,7 +45,7 @@
  
      include "level3(ralt_switch)"
  };
-@@ -1056,3 +1070,21 @@
+@@ -1056,3 +1070,22 @@
  
      include "level3(ralt_switch)"
  };
@@ -55,6 +55,7 @@
 +xkb_symbols "mac_avm" {
 +
 +    include "ru(mac)"
++    include "keypad(ossnumber)"
 +    name[Group1]= "Russian (Macintosh, Alexey Martynov)";
 +
 +    key <SPCE> { [         space,        space,       nobreakspace,     0x100200D ] };  // space, space, nobreakspace, zero width joiner

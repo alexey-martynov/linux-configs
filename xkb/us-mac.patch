@@ -1,6 +1,6 @@
 --- us	2022-12-07 11:52:53.533386974 +0300
-+++ us	2023-08-14 17:07:10.411388578 +0300
-@@ -2162,3 +2162,15 @@
++++ us	2023-08-18 09:24:36.973022519 +0300
+@@ -2162,3 +2162,16 @@
  
      include "level3(ralt_switch)"
  };
@@ -9,6 +9,7 @@
 +xkb_symbols "mac_avm" {
 +
 +    include "us(mac)"
++    include "keypad(ossnumber)"
 +    name[Group1]= "English (Macintosh, Alexey Martynov)";
 +
 +    key <SPCE> { [         space,        space,       nobreakspace,      0x100200D ] };  // space, space, nobreakspace, zero width joiner
