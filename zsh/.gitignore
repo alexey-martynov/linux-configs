@@ -1,5 +1,6 @@
 # ZSH files
 .zcompdump
 .zsh_history
+.zsh_sessions
 # Local configuration
 *-local
