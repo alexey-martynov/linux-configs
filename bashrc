@@ -1,9 +1,15 @@
 # -*- mode: shell-script -*-
 
-# Add local commands to PATH
+# Add XDG bin to PATH if exists
 if test -d "$HOME/.local/bin"
 then
     export PATH="$HOME/.local/bin:$PATH"
+fi
+# Add local scripts dir to PATH if exists
+# The local scripts go after everything else
+if test -d "$HOME/.local/scripts"
+then
+    export PATH="$PATH:$HOME/.local/scripts"
 fi
 
 export AVM_PROMPT_RESET_COLORS='\033[00m'

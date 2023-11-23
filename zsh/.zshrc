@@ -315,6 +315,14 @@ then
     path=("$HOME/.local/bin" $path)
     export PATH
 fi
+# Add local scripts dir to PATH if exists
+# The local scripts go after everything else
+# Duplicated here to avoid overrides for interactive shells
+if [[ -d "$HOME/.local/scripts" ]]
+then
+    path=($path "$HOME/.local/scripts")
+    export PATH
+fi
 
 # Add more key bindings to workaround SSH terminal issues
 if [[ -n "$SSH_CONNECTION" ]]
