@@ -20,7 +20,6 @@ setopt HIST_REDUCE_BLANKS
 setopt combiningchars
 setopt prompt_subst
 
-autoload -Uz compinit && compinit
 autoload -Uz vcs_info && vcs_info
 
 unsetopt AUTO_MENU
@@ -48,6 +47,13 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' use-compctl true
 #zstyle :compinstall filename '/root/.zshrc'
+
+# Add XDG hosted completions if exists
+# Duplicated here to avoid overrides for interactive shells
+if [[ -d "$HOME/.local/share/zsh/completion" ]]
+then
+    fpath=("$HOME/.local/share/zsh/completion" $fpath)
+fi
 
 autoload -Uz compinit
 compinit
