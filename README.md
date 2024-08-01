@@ -97,7 +97,7 @@ issues:
 
 * They don't allow to enter most of symbols used as good typography
   practice, for example, dashes or ellipsis.
-  
+
 * The Macintosh layout allows to enter Rouble sign but it is placed to
   button different from Mac layout.
 
@@ -105,16 +105,16 @@ Additional Xkb layouts placed to `xkb` subdirectory. The provide:
 
 * Updated layout 'Russian (Macintosh)' to include more symbols for true
   MacOS layout.
-  
+
 * Additional layout 'Russian (Macintosh, Alexey Martynov)' which
   places the following characters (letters in English):
-  
+
   - 'λ' on 'RAlt-l'
   - 'ε' on 'RAlt-e'
   - 'combining acute' on 'RAlt-Shift-e', used to show stress in words
   - 'non-breaking space' on 'RAlt-Space'
   - 'zero-width joiner' on 'RAlt-Shift-Space'
-  
+
 * Additional layout 'US (Macintosh, Alexey Martynov) providing:
 
   - 'non-breaking space' on 'RAlt-Space'
@@ -128,7 +128,7 @@ To install please execute
 patch -p0 < ~/configs/ru-mac.patch
 ```
 
-or 
+or
 
 ```
 patch -p0 < ~/configs/us-mac.patch
@@ -166,3 +166,16 @@ for terminal application.
 All platform-dependent configuration should go to files with suffix
 `-$(uname)`. For example, MacOS (actually, Darwin) environment goes to
 `.zshenv-Darwin`.
+
+Scripts
+-------
+
+Some helper scripts are placed to `scripts` subdirectory. Zsh
+automatically adds path to it to the end of `PATH` variable.
+
+The script `in-project-root` invokes his first argument in the root of
+Git project. All other arguments passed to command as is.
+
+The script `make-tags` generates Emacs tags for C and C++
+projects. The first level directories started from `@` are ignored
+since they used by author as worktrees.

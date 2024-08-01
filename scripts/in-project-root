@@ -1,0 +1,10 @@
+#!/bin/sh
+ROOT="$(git rev-parse --show-toplevel)"
+
+if test -z "$ROOT"
+then
+  echo "No Git project" >&2
+  exit 1
+fi
+export NO_COLOR=yes
+cd "$ROOT" && "$@"

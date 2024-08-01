@@ -319,7 +319,6 @@ alias egrep='egrep --color=auto'
 if [[ -d "$HOME/.local/bin" ]]
 then
     path=("$HOME/.local/bin" $path)
-    export PATH
 fi
 # Add local scripts dir to PATH if exists
 # The local scripts go after everything else
@@ -327,8 +326,12 @@ fi
 if [[ -d "$HOME/.local/scripts" ]]
 then
     path=($path "$HOME/.local/scripts")
-    export PATH
 fi
+# Add self scripts dir to PATH
+# The self scripts go after everything else
+# Duplicated here to avoid overrides for interactive shells
+path=($path "$ZDOTDIR/../scripts")
+export PATH
 
 # Add more key bindings to workaround SSH terminal issues
 if [[ -n "$SSH_CONNECTION" ]]

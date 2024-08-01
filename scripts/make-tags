@@ -1,0 +1,2 @@
+#!/bin/sh
+find . \( -name '*.[chCH]' -o -name '*.[ch]pp' \) -print | grep -v '^./@' | etags --ignore-indentation -

@@ -24,6 +24,11 @@ then
     path=($path "$HOME/.local/scripts")
     export PATH
 fi
+# Add self scripts dir to PATH
+# The self scripts go after everything else
+# Duplicated here to avoid overrides for interactive shells
+path=($path "$ZDOTDIR/../scripts")
+export PATH
 
 # Load per-platform and local files
 platform="$(uname)"
