@@ -1,10 +1,42 @@
 #!/bin/sh
-ROOT="$(git rev-parse --show-toplevel)"
+subdir=
+verbose=no
+root="$(git rev-parse --show-toplevel)"
 
-if test -z "$ROOT"
+if test -z "$root"
 then
   echo "No Git project" >&2
   exit 1
 fi
-export NO_COLOR=yes
-cd "$ROOT" && "$@"
+
+while test "$1"
+do
+    case "$1" in
+        "-d")
+            if test -z "$2"
+            then
+                echo "The -d option requires valid argument" >&2
+                exit 1
+            fi
+            subdir="/$2"
+            shift
+            ;;
+
+        "-v")
+            verbose=yes
+            ;;
+
+        *)
+            break
+    esac
+
+    shift
+done
+
+if test "$verbose" = "yes"
+then
+    echo "Entering directory '$root$subdir'"
+fi
+cd "$root$subdir" || exit $?
+
+"$@"
